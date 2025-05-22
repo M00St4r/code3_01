@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://u3j7ar6hve1h"]
+
+[ext_resource type="Texture2D" uid="uid://snilr0hm1ibh" path="res://MeterGrid.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b2b31gxmlfa4x" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://3igiu2oiq21i" path="res://cylinder.gd" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1bvp3"]
+height = 0.025
+rings = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_color = Color(0.374139, 0.374139, 0.374139, 1)
+albedo_texture = ExtResource("1_0xm2m")
+uv1_scale = Vector3(5, 5, 5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1bvp3"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_h2yge")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="TableTop" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012, 0)
+mesh = SubResource("CylinderMesh_1bvp3")
+surface_material_override/0 = SubResource("StandardMaterial3D_lquwl")
+
+[node name="CameraPivot_y" type="Node3D" parent="."]
+
+[node name="CameraPivot_x" type="Node3D" parent="CameraPivot_y"]
+transform = Transform3D(1, 0, 0, 0, 0.722967, 0.690882, 0, -0.690882, 0.722967, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot_y/CameraPivot_x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0868117, 0)
+mesh = SubResource("ArrayMesh_1bvp3")
+script = ExtResource("3_h2yge")
