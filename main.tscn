@@ -52,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 0.722967, 0.690882, 0, -0.690882, 0.722967, 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot_y/CameraPivot_x"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="procGeo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0868117, 0)
 mesh = SubResource("ArrayMesh_1bvp3")
 script = ExtResource("3_h2yge")

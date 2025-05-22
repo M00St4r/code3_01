@@ -4,10 +4,24 @@ extends MeshInstance3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var vertices = PackedVector3Array()
-	vertices.push_back(Vector3(0, 0.3, 0))
-	vertices.push_back(Vector3(0.3, 0, 0))
-	vertices.push_back(Vector3(0, 0, 0.3))
-
+	#front
+	vertices.push_back(Vector3(0.1, 0.2, 0.1))
+	vertices.push_back(Vector3(0.1, 0, 0.1))
+	vertices.push_back(Vector3(-0.1, 0, 0.1))
+	
+	vertices.push_back(Vector3(-0.1, 0.2, 0.1))
+	vertices.push_back(Vector3(0.1, 0.2, 0.1))
+	vertices.push_back(Vector3(-0.1, 0, 0.1))
+	
+	#left
+	vertices.push_back(Vector3(-0.1, 0.2, -0.1))
+	vertices.push_back(Vector3(-0.1, 0.2, 0.1))
+	vertices.push_back(Vector3(-0.1, 0.0, 0.1))
+	
+	vertices.push_back(Vector3(-0.1, 0.2, -0.1))
+	vertices.push_back(Vector3(-0.1, 0.0, 0.1))
+	vertices.push_back(Vector3(-0.1, 0.0, -0.1))
+	
 	# Initialize and arrange the data for the single surface
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
