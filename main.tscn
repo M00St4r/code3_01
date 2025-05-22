@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://u3j7ar6hve1h"]
+[gd_scene load_steps=11 format=3 uid="uid://u3j7ar6hve1h"]
 
 [ext_resource type="Texture2D" uid="uid://snilr0hm1ibh" path="res://MeterGrid.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b2b31gxmlfa4x" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://3igiu2oiq21i" path="res://cylinder.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://83eblpfqujtd" path="res://2SidedCube.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://duheurm3tr5at" path="res://cylinder.gd" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -56,3 +57,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0868117, 0)
 mesh = SubResource("ArrayMesh_1bvp3")
 script = ExtResource("3_h2yge")
+
+[node name="cylinder" type="MeshInstance3D" parent="."]
+script = ExtResource("4_1bvp3")
