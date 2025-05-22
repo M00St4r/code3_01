@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://u3j7ar6hve1h"]
+[gd_scene load_steps=12 format=3 uid="uid://u3j7ar6hve1h"]
 
 [ext_resource type="Texture2D" uid="uid://snilr0hm1ibh" path="res://MeterGrid.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://b2b31gxmlfa4x" path="res://main.gd" id="1_h2yge"]
@@ -30,6 +30,8 @@ uv1_world_triplanar = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1bvp3"]
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_lquwl"]
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
@@ -55,8 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
 
 [node name="procGeo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0868117, 0)
+visible = false
 mesh = SubResource("ArrayMesh_1bvp3")
 script = ExtResource("3_h2yge")
 
 [node name="cylinder" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_lquwl")
 script = ExtResource("4_1bvp3")
