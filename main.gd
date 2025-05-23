@@ -31,9 +31,9 @@ func _process(delta: float) -> void:
 		$CameraPivot_y.rotate_y(-speed * PI/180 * delta)
 		
 	if Input.is_action_pressed("ui_up"):
-		if($CameraPivot_y/CameraPivot_x.rotation.x >= -145 * PI/180):
+		if($CameraPivot_y/CameraPivot_x.rotation.x >= -180 * PI/180):
 			$CameraPivot_y/CameraPivot_x.rotate_x(-speed * PI/180 * delta)
 	
 	if Input.is_action_pressed("ui_down"):
-		if($CameraPivot_y/CameraPivot_x.rotation.x <= -35 * PI/180):
+		if($CameraPivot_y/CameraPivot_x.rotation.x <= -0 * PI/180):
 			$CameraPivot_y/CameraPivot_x.rotate_x(speed * PI/180 * delta)
